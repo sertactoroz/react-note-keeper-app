@@ -6,20 +6,38 @@ import CreateNote from "./CreateNote";
 
 function App() {
   const [notes, setNotes] = useState([]);
+  
 
-  const addNote = () => {
-
+  const addNote = (input) => {
+  
+    setNotes((prevNotes) => {return(
+      [...prevNotes, input])
+    });
   };
 
-  const deleteNote = () => {
-  
+  const deleteNote = (id) => {
+    setNotes(prevNotes => {
+      return prevNotes.filter((noteItem,index) =>{
+        return index !==id;
+      });
+    });
   };
 
   return (
     <div>
       <Header />
-      <CreateNote />
-      //Note
+      <CreateNote onAdd={addNote} />
+      {notes.map((item, index) => {
+        return (
+          <Note
+            key={index}
+            id={index}
+            title={item.title}
+            content={item.content}
+            onDelete={deleteNote}
+          />
+        );
+      })}
       <Footer />
     </div>
   );
