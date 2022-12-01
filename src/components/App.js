@@ -1,12 +1,28 @@
-import logo from "../logo.svg";
-
+import React, {useState} from "react";
+import Header from "./Header";
+import Footer from "./Footer";
+import Note from "./Note";
+import CreateNote from "./CreateNote";
 
 function App() {
-  return <div className="App">
-  <h3>{process.env.NODE_ENV}</h3>
- <img src="/logo192.png" alt=""></img>
- <img src={logo} alt=""></img>
-  </div>;
+  const [notes, setNotes] = useState([]);
+
+  const addNote = () => {
+
+  };
+
+  const deleteNote = () => {
+  
+  };
+
+  return (
+    <div>
+      <Header />
+      <CreateNote />
+      //Note
+      <Footer />
+    </div>
+  );
 }
 
 export default App;
