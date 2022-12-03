@@ -5,7 +5,7 @@ import Fab from "@mui/material/Fab";
 
 function CreateNote(props) {
   const [input, setInput] = useState({ title: "", content: "", noteDate: "" });
-  const [clicked, setClicked] = useState(true);
+  const [clicked, setClicked] = useState(false);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -21,14 +21,14 @@ function CreateNote(props) {
   };
 
   const handleClick = () => {
-    setClicked((prevValue)=>{return !prevValue})
+    setClicked(()=>{return true})
   }
 
   return (
     <div>
       <form className="create-note">
         <input 
-         style={{display: clicked ? 'none': 'inline'}}
+         style={{display: clicked ?'inline' : 'none'}}
           onChange={handleChange}
           name="title"
           placeholder="Title"
@@ -39,10 +39,10 @@ function CreateNote(props) {
           onChange={handleChange}
           name="content"
           placeholder="Take a note..."
-          rows={clicked ? "1" : "3"}
+          rows={clicked ? "3" : "1"}
           value={input.content}
         />
-        <Zoom style={{display: clicked ? 'none': 'inline'}}  in={true}>
+        <Zoom style={{display: clicked ?'inline' : 'none'}}  in={true}>
           <Fab onClick={handleSubmit}>
             <AddCircleOutlineIcon />
           </Fab>
