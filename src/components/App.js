@@ -1,10 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import Note from "./Note";
 import CreateNote from "./CreateNote";
+// import fs from 'fs';
+
 
 function App() {
+  
+  useEffect(()=>{
+    fetch('http://localhost:8000/blogs')
+    .then(res=>{
+      return res.json();
+    })
+    .then(data=>{
+      console.log(data);
+    })
+  },[]);
+
+  // const rawNotesData = fs.readFileSync('../src/notes.json');
+  // const notesData = JSON.parse(rawNotesData);
+  // console.log(notesData);
+
   const [notes, setNotes] = useState([]);
 
   const addNote = (input) => {

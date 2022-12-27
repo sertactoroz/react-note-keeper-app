@@ -3,6 +3,7 @@ import Zoom from "@mui/material/Zoom";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import Fab from "@mui/material/Fab";
 
+
 function CreateNote(props) {
   const [input, setInput] = useState({ title: "", content: "", noteDate: "" });
   const [clicked, setClicked] = useState(false);
@@ -14,7 +15,8 @@ function CreateNote(props) {
     });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
+
     event.preventDefault();
     props.onAdd(input);
     setInput({ title: "", content: "" });
