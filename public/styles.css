@@ -52,11 +52,23 @@ footer p {
   font-size: 1.1em;
   margin-bottom: 6px;
 }
+.note h2{
+  font-size: 1.2em;
+  margin-bottom: 6px;
+}
+.note h3{
+  font-size: 1em;
+  margin-bottom: 6px;
+}
 .note p {
-  font-size: 1.1em;
-  margin-bottom: 10px;
+  color: rgb(51, 51, 51);
+  font-size: 0.8em;
   white-space: pre-wrap;
   word-wrap: break-word;
+}
+.date{
+  background-color: rgb(37, 37, 37);
+  padding: 5px;
 }
 
 .note button {
