@@ -1,11 +1,10 @@
 import React from "react";
 // import styled from "styled-components";
-import HighlightIcon from '@mui/icons-material/Highlight';
-
+import PushPinIcon from '@mui/icons-material/PushPin';
 function Header() {
   return (
     <header>
-      <h1>    <HighlightIcon /> Keeper App</h1>
+      <h1>    <PushPinIcon /> PinBoard</h1>
     </header>
   );
 }
