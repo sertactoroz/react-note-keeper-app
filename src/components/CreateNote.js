@@ -4,22 +4,28 @@ import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import Fab from "@mui/material/Fab";
 
 
+ 
+
 function CreateNote(props) {
-  const [input, setInput] = useState({ title: "", content: "", noteDate: "" });
+  const [input, setInput] = useState({ title: "", content: "", noteDate:"", noteTime:""});
   const [clicked, setClicked] = useState(false);
 
   const handleChange = (event) => {
+    const date = new Date().toDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"}) 
+    const hours = new Date().toLocaleTimeString([], {hour12: false , hour: "2-digit", minute: "2-digit" });
+    
     const { name, value } = event.target;
     setInput((prevValue) => {
-      return { ...prevValue, [name]: value };
+      return { ...prevValue, [name]: value, noteDate:date, noteTime:hours };
     });
   };
 
   const handleSubmit = async (event) => {
-
+   
     event.preventDefault();
     props.onAdd(input);
-    setInput({ title: "", content: "" });
+    console.log(input)
+    setInput({ title: "", content: "", noteDate:"", noteTime:""});
   };
 
   const handleClick = () => {

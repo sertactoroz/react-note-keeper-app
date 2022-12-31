@@ -8,15 +8,15 @@ import CreateNote from "./CreateNote";
 
 function App() {
   
-  useEffect(()=>{
-    fetch('http://localhost:8000/blogs')
-    .then(res=>{
-      return res.json();
-    })
-    .then(data=>{
-      console.log(data);
-    })
-  },[]);
+  // useEffect(()=>{
+  //   fetch('http://localhost:8000/blogs')
+  //   .then(res=>{
+  //     return res.json();
+  //   })
+  //   .then(data=>{
+  //     console.log(data);
+  //   })
+  // },[]);
 
   // const rawNotesData = fs.readFileSync('../src/notes.json');
   // const notesData = JSON.parse(rawNotesData);
@@ -50,7 +50,11 @@ function App() {
             title={item.title}
             content={item.content}
             onDelete={deleteNote}
+            noteDate={item.noteDate} 
+            noteTime={item.noteTime}
           />
+           
+     
         );
       })}
       <Footer />
